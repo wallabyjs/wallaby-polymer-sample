@@ -1,0 +1,27 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="simple-element">
+
+    <style>
+        :host {
+            display: block;
+            box-sizing: border-box;
+        }
+
+        .message {
+            color: red;
+        }
+    </style>
+
+    <template>
+        <h1>&lt;simple-element&gt;</h1>
+        <content></content>
+        <p class="message">
+            <span class="name">{{message.text}}</span>
+        </p>
+        <img src="unicorn.jpg">
+    </template>
+
+</dom-module>
+
+<script src="simple-element.js"></script>

@@ -1,0 +1,20 @@
+{
+  "name": "wallaby-polymer-sample",
+  "version": "0.0.0",
+  "homepage": "https://github.com/wallabyjs/wallaby-polymer-sample",
+  "authors": [
+    "Artem Govorov <artem.govorov@gmail.com>"
+  ],
+  "description": "Sample configuration for testing Polymer components with wallaby.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~1.1.0"
+  }
+}

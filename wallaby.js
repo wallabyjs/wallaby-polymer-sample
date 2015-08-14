@@ -1,7 +1,7 @@
 module.exports = function () {
   return {
     files: [
-      'bower_components/webcomponentsjs/webcomponents-lite.js',
+      {pattern: 'bower_components/webcomponentsjs/webcomponents-lite.js', instrument: false},
 
       // Component and its files (files with load: false because they will be loaded by the component)
       'component/simple-element.html',

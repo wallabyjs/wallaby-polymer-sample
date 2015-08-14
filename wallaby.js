@@ -9,12 +9,12 @@ module.exports = function () {
     ],
     tests: ['test/*.js'],
 
-    debug: true,
-
     env: {
       type: 'browser',
       // PhantomJs 2 is required
-      runner: 'node_modules/karma-phantomjs2-launcher/node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs'
+      runner: 'node_modules/karma-phantomjs2-launcher/node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs',
+      // Web components request JavaScript files so we need to clear page cache to avoid using the cached version
+      clearMemoryCache: true
     },
 
     // this will allow wallaby to serve polymer files when requested by components
@@ -24,13 +24,14 @@ module.exports = function () {
           require('path').join(__dirname, 'bower_components', 'polymer')));
     },
 
-    // running tests once web components are ready
+    // delaying running tests until web components are ready
     bootstrap: function (wallaby) {
-      wallaby.delayStart();
-
-      window.addEventListener('WebComponentsReady', function () {
-        wallaby.start();
-      });
+      if (!window.CustomElements || !window.CustomElements.readyTime) {
+        wallaby.delayStart();
+        window.addEventListener('WebComponentsReady', function () {
+          wallaby.start();
+        });
+      }
     }
   };
 };

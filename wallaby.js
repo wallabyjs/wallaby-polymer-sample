@@ -12,6 +12,7 @@ module.exports = function () {
     env: {
       type: 'browser',
       // PhantomJs 2 is required
+      // NOTE that with npm >=3 the file structure may be different
       runner: 'node_modules/karma-phantomjs2-launcher/node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs',
       // Web components request JavaScript files so we need to clear page cache to avoid using the cached version
       clearMemoryCache: true

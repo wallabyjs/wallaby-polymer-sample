@@ -10,15 +10,13 @@ module.exports = function () {
     tests: ['test/*.js'],
 
     env: {
-      type: 'browser',
-      // PhantomJs 2 is required
-      // NOTE that with npm >=3 the file structure may be different
-      runner: 'node_modules/karma-phantomjs2-launcher/node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs',
+      runner: require('phantomjs2-ext').path,
+      params: { runner: '--web-security=false' },
       // Web components request JavaScript files so we need to clear page cache to avoid using the cached version
       clearMemoryCache: true
     },
 
-    // this will allow wallaby to serve polymer files when requested by components
+    // this allows wallaby to serve polymer files when requested by components
     middleware: function (app, express) {
       app.use('/polymer',
         express.static(

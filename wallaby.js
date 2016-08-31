@@ -24,7 +24,7 @@ module.exports = function () {
     },
 
     // delaying running tests until web components are ready
-    bootstrap: function (wallaby) {
+    setup: function (wallaby) {
       if (!window.CustomElements || !window.CustomElements.readyTime) {
         wallaby.delayStart();
         window.addEventListener('WebComponentsReady', function () {

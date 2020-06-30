@@ -9,13 +9,6 @@ module.exports = function () {
     ],
     tests: ['test/*.js'],
 
-    env: {
-      runner: require('phantomjs2-ext').path,
-      params: { runner: '--web-security=false' },
-      // Web components request JavaScript files so we need to clear page cache to avoid using the cached version
-      clearMemoryCache: true
-    },
-
     // this allows wallaby to serve polymer files when requested by components
     middleware: function (app, express) {
       app.use('/polymer',
@@ -31,6 +24,11 @@ module.exports = function () {
           wallaby.start();
         });
       }
-    }
+    },
+
+    debug: true,
+    trace: true
+
+    
   };
 };

@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/wallabyjs/wallaby-polymer-sample/issues"
   },
-  "homepage": "https://github.com/wallabyjs/wallaby-polymer-sample",
-  "devDependencies": {
-    "phantomjs2-ext": "^0.2.2"
-  }
+  "homepage": "https://github.com/wallabyjs/wallaby-polymer-sample"
 }
